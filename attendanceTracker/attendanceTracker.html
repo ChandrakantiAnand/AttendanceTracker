@@ -1,0 +1,61 @@
+<template>
+    <div class="custom-background">
+        <lightning-card title=" MPT Attendance Tracking" icon-name="utility:checkin">
+            <!-- Employee ID Input -->
+            <div class="slds-m-around_medium">
+                <lightning-input 
+                    label="𝗘𝗺𝗽𝗹𝗼𝘆𝗲𝗲 𝗡𝗮𝗺𝗲"
+                    type="text"
+                    value={employeeId}
+                    onchange={handleEmployeeIdChange}
+                    required>
+                </lightning-input>
+            </div>
+
+            <!-- Programs Picklist -->
+            <div class="slds-m-around_medium">
+                <lightning-combobox
+                    label="𝗣𝗿𝗼𝗴𝗿𝗮𝗺"
+                    value={selectedProgram}
+                    options={programOptions}
+                    onchange={handleProgramChange}
+                    required>
+                </lightning-combobox>
+            </div>
+
+            <!-- Status Picklist -->
+            <div class="slds-m-around_medium">
+                <lightning-combobox
+                    label="𝗦𝘁𝗮𝘁𝘂𝘀"
+                    value={selectedStatus}
+                    options={statusOptions}
+                    onchange={handleStatusChange}
+                    required>
+                </lightning-combobox>
+            </div>
+
+            <!-- Submit Button (Centered) -->
+            <div class="slds-m-around_medium slds-text-align_center">
+                <lightning-button 
+                    label="Submit" 
+                    variant="brand" 
+                    onclick={handleCheckIn}>
+                </lightning-button>
+            </div>
+
+             <!--Export Button -->
+           <!--div class="slds-m-around_medium slds-text-align_center">
+                <lightning-button 
+                    label="Export Records" 
+                    variant="Success" 
+                    onclick={handleExportRecords}>
+                </lightning-button>
+            </div-->
+
+            <!-- Success/Error Messages -->
+            <template if:true={message}>
+                <p class={messageClass}>{message}</p>
+            </template>
+        </lightning-card>
+    </div>
+</template>
